@@ -2,25 +2,16 @@ import DataTable from "react-data-table-component";
 
 const columns = [
   {
+    name: "Id",
+    selector: (row) => row.id,
+  },
+  {
     name: "Title",
     selector: (row) => row.title,
   },
   {
-    name: "Year",
-    selector: (row) => row.year,
-  },
-];
-
-export const data = [
-  {
-    id: 1,
-    title: "Beetlejuice",
-    age: 18,
-  },
-  {
-    id: 2,
-    title: "Ghostbusters",
-    age: 20,
+    name: "Age",
+    selector: (row) => row.age,
   },
 ];
 

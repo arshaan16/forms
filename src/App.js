@@ -8,7 +8,7 @@ export default function App() {
   function submitHandler(e) {
     e.preventDefault();
     list.push({
-      id: 1,
+      id: Math.random(),
       title: name,
       age: age,
     });

@@ -2,9 +2,9 @@ import { data, MyComponent } from "./MyComponent";
 import { useState } from "react";
 
 export default function App() {
-  const [list, setList] = useState(data);
+  const [list, setList] = useState([]);
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState("");
   function submitHandler(e) {
     e.preventDefault();
     list.push({

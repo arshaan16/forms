@@ -11,16 +11,7 @@ const columns = [
   },
 ];
 
-export const data = [
-  {
-    id: 1,
-    title: "Beetlejuice",
-  },
-  {
-    id: 2,
-    title: "Ghostbusters",
-  },
-];
+export const data = [];
 
 export function MyComponent({ list }) {
   return <DataTable columns={columns} data={list} />;

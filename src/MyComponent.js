@@ -13,6 +13,18 @@ const columns = [
     name: "Age",
     selector: (row) => row.age,
   },
+  {
+    name: "Hobbies",
+    selector: (row) => row.hobbies,
+  },
+  {
+    name: "Fruits",
+    selector: (row) => row.fruits,
+  },
+  {
+    name: "isCool",
+    selector: (row) => row.isCool,
+  },
 ];
 
 export function MyComponent({ list }) {

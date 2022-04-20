@@ -7,9 +7,14 @@ export default function App() {
   const [age, setAge] = useState(0);
   function submitHandler(e) {
     e.preventDefault();
-    setList([...list, { id: Date.now() + Math.random(), title: name }]);
+    list.push({
+      id: 1,
+      title: name,
+      age: age,
+    });
+
+    setList([...list]);
   }
-  console.log(list);
   return (
     <>
       <form onSubmit={(e) => submitHandler(e)}>

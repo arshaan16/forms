@@ -23,7 +23,7 @@ const columns = [
   },
   {
     name: "isCool",
-    selector: (row) => row.isCool,
+    selector: (row) => row.isCool.toString(),
   },
 ];
 

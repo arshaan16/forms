@@ -61,7 +61,7 @@ export default function App() {
           onChange={(e) => setHobbies(e.target.value)}
         ></input>
 
-        <label for="fruits">Choose a fruits:</label>
+        <label htmlFor="fruits">Choose a fruits:</label>
         <select
           name="fruits"
           id="fruits"
@@ -79,10 +79,11 @@ export default function App() {
           id="Cooler"
           name="Cooler"
           value={isCool}
-          onChange={setCool(!isCool)}
+          onClick={() => {
+            setCool(!isCool);
+          }}
         />
-        <label for="Cooler"> I have a Cooler</label>
-
+        <label htmlFor="Cooler"> I am Cool</label>
         <button>Submit</button>
       </form>
       <MyComponent list={list} />

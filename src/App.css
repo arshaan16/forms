@@ -1,0 +1,61 @@
+.flex{
+    background-color: azure;
+    border: 3px solid lightgray;
+    display: flex;
+    flex-direction: row;
+    border-collapse: collapse;
+    
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.flex-row{
+    display: inline-flex;
+}
+
+#insta::after{
+    margin: 0em;
+    padding: 0%;
+    content: "\a";
+    white-space: pre;
+
+}
+#name::after{
+    margin: 0em;
+    padding: 0%;
+    content: "\a";
+    white-space: pre;
+
+}
+#age::after{
+    margin: 0em;
+    padding: 0%;
+    content: "\a";
+    white-space: pre;
+
+}
+#hobbies::after{
+    margin: 0em;
+    padding: 0%;
+    content: "\a";
+    white-space: pre;
+
+}
+#fruits::after{
+    margin: 0em;
+    padding: 0%;
+    content: "\a";
+    white-space: pre;
+
+}
+#cooler::after{
+    margin: 0em;
+    padding: 0%;
+    content: "\a";
+    white-space: pre;
+
+}

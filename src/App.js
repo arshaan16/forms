@@ -1,6 +1,6 @@
 import { MyComponent } from "./MyComponent";
 import { useState } from "react";
-
+import "./App.css";
 let myId = localStorage.getItem("id")
   ? JSON.parse(localStorage.getItem("id"))
   : 0;
@@ -40,21 +40,26 @@ export default function App() {
   }
   return (
     <>
-      <form onSubmit={(e) => submitHandler(e)}>
+      <form className="flex flex-row" onSubmit={(e) => submitHandler(e)}>
         <label htmlFor="insta">Insta handle </label>
         <input
+          className="insta"
           value={insta}
           id="insta"
           onChange={(e) => setInsta(e.target.value)}
         ></input>
-        <label htmlFor="name">Name </label>
+        <label className="name" htmlFor="name">
+          Name{" "}
+        </label>
         <input
           value={name}
           id="name"
           onChange={(e) => setName(e.target.value)}
         ></input>
 
-        <label htmlFor="age">Age </label>
+        <label className="age" htmlFor="age">
+          Age{" "}
+        </label>
         <input
           value={age}
           id="age"
@@ -62,7 +67,9 @@ export default function App() {
           onChange={(e) => setAge(e.target.value)}
         ></input>
 
-        <label htmlFor="hobbies">Hobbies </label>
+        <label className="hobbies" htmlFor="hobbies">
+          Hobbies{" "}
+        </label>
         <input
           value={hobbies}
           id="hobbies"
@@ -70,7 +77,9 @@ export default function App() {
           onChange={(e) => setHobbies(e.target.value)}
         ></input>
 
-        <label htmlFor="fruits">Choose a fruits:</label>
+        <label className="fruits" htmlFor="fruits">
+          Choose a fruits:
+        </label>
         <select
           name="fruits"
           id="fruits"
@@ -92,10 +101,15 @@ export default function App() {
             setCool(!isCool);
           }}
         />
-        <label htmlFor="Cooler"> I am Cool</label>
+        <label className="cooler" htmlFor="Cooler">
+          {" "}
+          I am Cool
+        </label>
         <button>Submit</button>
       </form>
-      <form>
+      <br></br>
+
+      <form className="search">
         <label htmlFor="search">Search</label>
         <input
           type="text"

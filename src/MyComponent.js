@@ -30,9 +30,8 @@ export function MyComponent({ list, setList }) {
     <DataTable
       columns={columns}
       onRowClicked={(row) => {
-        let isBoss = window.confirm("are you sure you want to delete");
-
-        if (isBoss) {
+        let isDel = window.confirm("are you sure you want to delete");
+        if (isDel) {
           let arr = list.filter((item) => item.id !== row.id);
           setList(arr);
           localStorage.setItem("list", JSON.stringify(arr));

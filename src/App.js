@@ -109,8 +109,13 @@ export default function App() {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setList([]);
-            localStorage.setItem("list", JSON.stringify([]));
+            let isDelAll = window.confirm(
+              "are you sure you want to delete everything"
+            );
+            if (isDelAll) {
+              setList([]);
+              localStorage.setItem("list", JSON.stringify([]));
+            }
           }}
         >
           DELETE

@@ -110,6 +110,7 @@ export default function App() {
           onClick={(e) => {
             e.preventDefault();
             setList([]);
+            localStorage.setItem("list", JSON.stringify([]));
           }}
         >
           DELETE

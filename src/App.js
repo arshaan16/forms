@@ -20,6 +20,7 @@ export default function App() {
   const [hobbies, setHobbies] = useState("");
   const [fruit, setFruit] = useState("Mango");
   const [isCool, setCool] = useState(false);
+  const [isSearching, setSearch] = useState("");
   function submitHandler(e) {
     e.preventDefault();
     list.push({
@@ -86,7 +87,35 @@ export default function App() {
         <label htmlFor="Cooler"> I am Cool</label>
         <button>Submit</button>
       </form>
-      <MyComponent list={list} />
+      <form>
+        <label htmlFor="search">Search</label>
+        <input
+          type="text"
+          id="search"
+          name="search"
+          value={isSearching}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            const arr = list.filter((item) => item.title === isSearching);
+            setList(arr);
+            // localStorage.setItem("list", JSON.stringify(arr));
+          }}
+        >
+          SearchBYName
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setList([]);
+          }}
+        >
+          DELETE
+        </button>
+      </form>
+      <MyComponent list={list} setList={setList} />
     </>
   );
 }

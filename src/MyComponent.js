@@ -1,5 +1,4 @@
 import DataTable from "react-data-table-component";
-
 const columns = [
   {
     name: "Id",
@@ -26,7 +25,20 @@ const columns = [
     selector: (row) => row.isCool.toString(),
   },
 ];
+export function MyComponent({ list, setList }) {
+  return (
+    <DataTable
+      columns={columns}
+      onRowClicked={(row) => {
+        let isBoss = window.confirm("are you sure you want to delete");
 
-export function MyComponent({ list }) {
-  return <DataTable columns={columns} data={list} />;
+        if (isBoss) {
+          let arr = list.filter((item) => item.id !== row.id);
+          setList(arr);
+          localStorage.setItem("list", JSON.stringify(arr));
+        }
+      }}
+      data={list}
+    />
+  );
 }

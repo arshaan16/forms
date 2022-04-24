@@ -9,6 +9,16 @@ const columns = [
     selector: (row) => row.title,
   },
   {
+    name: "Insta handle",
+    selector: (row) => {
+      return (
+        <a href={`https://www.instagram.com/${row.insta}`} target="_blank">
+          {row.insta}
+        </a>
+      );
+    },
+  },
+  {
     name: "Age",
     selector: (row) => row.age,
   },
@@ -30,7 +40,7 @@ export function MyComponent({ list, setList }) {
     <DataTable
       columns={columns}
       onRowClicked={(row) => {
-        let isDel = window.confirm("are you sure you want to delete");
+        let isDel = window.confirm("Are you sure you want to delete!!");
         if (isDel) {
           let arr = list.filter((item) => item.id !== row.id);
           setList(arr);

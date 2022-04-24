@@ -21,6 +21,7 @@ export default function App() {
   const [fruit, setFruit] = useState("Mango");
   const [isCool, setCool] = useState(false);
   const [isSearching, setSearch] = useState("");
+  const [insta, setInsta] = useState("");
   function submitHandler(e) {
     e.preventDefault();
     list.push({
@@ -30,6 +31,7 @@ export default function App() {
       hobbies: hobbies,
       fruits: fruit,
       isCool: isCool,
+      insta: insta,
     });
     let arr = [...list];
     setList(arr);
@@ -39,6 +41,12 @@ export default function App() {
   return (
     <>
       <form onSubmit={(e) => submitHandler(e)}>
+        <label htmlFor="insta">Insta handle </label>
+        <input
+          value={insta}
+          id="insta"
+          onChange={(e) => setInsta(e.target.value)}
+        ></input>
         <label htmlFor="name">Name </label>
         <input
           value={name}
@@ -110,7 +118,7 @@ export default function App() {
           onClick={(e) => {
             e.preventDefault();
             let isDelAll = window.confirm(
-              "are you sure you want to delete everything"
+              "Are you sure you want to delete everything!!!"
             );
             if (isDelAll) {
               setList([]);

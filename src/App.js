@@ -1,6 +1,8 @@
 import { MyComponent } from "./MyComponent";
 import { useState } from "react";
+
 import "./App.css";
+
 let myId = localStorage.getItem("id")
   ? JSON.parse(localStorage.getItem("id"))
   : 0;
@@ -76,7 +78,7 @@ export default function App() {
           </button>
         </form>
 
-        <form className="flex flex-row" onSubmit={(e) => submitHandler(e)}>
+        <form className="flex " onSubmit={(e) => submitHandler(e)}>
           <div className="first-child">
             <label htmlFor="insta">Insta handle </label>
             <input
@@ -154,7 +156,9 @@ export default function App() {
               I am Cool
             </label>
           </div>
-          <button className="submit">Submit</button>
+          <button type="submit" className="submit">
+            Submit
+          </button>
         </form>
       </div>
       <MyComponent list={list} setList={setList} />

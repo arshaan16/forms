@@ -14,7 +14,7 @@ const columns = [
     selector: (row) => {
       return (
         <a href={`https://www.instagram.com/${row.insta}`} target="_blank">
-          {row.insta}
+          {row.insta} {row.followers || 0}
         </a>
       );
     },

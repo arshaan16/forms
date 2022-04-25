@@ -14,16 +14,14 @@
   display: flex;
   justify-content: space-between;
 }
-/* label {
+label {
   padding-left: 6px;
-} */
+}
 .choose {
   margin-left: 22px;
 }
 
 .submit {
-  /* display:flex;
-    justify-content: center; */
   margin: 0 auto;
 }
 

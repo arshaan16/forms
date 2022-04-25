@@ -1,6 +1,6 @@
 import { MyComponent } from "./MyComponent";
 import { useState } from "react";
-
+import "./App.css";
 let myId = localStorage.getItem("id")
   ? JSON.parse(localStorage.getItem("id"))
   : 0;

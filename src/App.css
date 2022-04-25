@@ -14,11 +14,11 @@
   display: flex;
   justify-content: space-between;
 }
-label {
+/* label {
   padding-left: 6px;
-}
+} */
 .choose {
-  margin-left: 12px;
+  margin-left: 20px;
 }
 /* .search {
   display: flex;

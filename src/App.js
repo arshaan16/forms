@@ -40,116 +40,123 @@ export default function App() {
   }
   return (
     <>
-      <form className="flex first-parent" onSubmit={(e) => submitHandler(e)}>
-        <div className="first-child">
-          <label htmlFor="insta">Insta handle- </label>
+      <div className="parent">
+        <form className="search">
+          <label htmlFor="search">Search</label>
           <input
-            className="insta"
-            value={insta}
-            id="insta"
-            onChange={(e) => setInsta(e.target.value)}
-          />
-        </div>
-        <div className="second-child">
-          <label className="name" htmlFor="name">
-            Name-
-          </label>
-          <input
-            value={name}
-            id="name"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="third-child">
-          <label className="age" htmlFor="age">
-            Age-
-          </label>
-          <input
-            value={age}
-            id="age"
-            type="number"
-            onChange={(e) => setAge(e.target.value)}
-          />
-        </div>
-        <div className="fourth-child">
-          <label className="hobbies" htmlFor="hobbies">
-            Hobbies-
-          </label>
-          <input
-            value={hobbies}
-            id="hobbies"
             type="text"
-            onChange={(e) => setHobbies(e.target.value)}
+            id="search"
+            name="search"
+            value={isSearching}
+            onChange={(e) => setSearch(e.target.value)}
           />
-        </div>
-        <div className="fifth-child">
-          <label className="fruits" htmlFor="fruits">
-            Choose a fruits:
-          </label>
-          <select
-            className="choose"
-            name="fruits"
-            id="fruits"
-            value={fruit}
-            onChange={(e) => setFruit(e.target.value)}
-          >
-            <option value="Mango">Mango</option>
-            <option value="Apple">Apple</option>
-            <option value="Orange">Orange</option>
-            <option value="Banana">Banana</option>
-          </select>
-        </div>
-        <div className="sixth-child">
-          <input
-            type="checkbox"
-            id="Cooler"
-            name="Cooler"
-            value={isCool}
-            onClick={() => {
-              setCool(!isCool);
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              const arr = list.filter((item) => item.title === isSearching);
+              setList(arr);
+              // localStorage.setItem("list", JSON.stringify(arr));
             }}
-          />
-          <label className="cooler" htmlFor="Cooler">
-            I am Cool
-          </label>
-        </div>
-        <button className="submit">Submit</button>
-      </form>
+          >
+            SearchBYName
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              let isDelAll = window.confirm(
+                "Are you sure you want to delete everything!!!"
+              );
+              if (isDelAll) {
+                setList([]);
+                localStorage.setItem("list", JSON.stringify([]));
+              }
+            }}
+          >
+            DELETE
+          </button>
+        </form>
 
-      <form className="search second-parent">
-        <label htmlFor="search">Search</label>
-        <input
-          type="text"
-          id="search"
-          name="search"
-          value={isSearching}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            const arr = list.filter((item) => item.title === isSearching);
-            setList(arr);
-            // localStorage.setItem("list", JSON.stringify(arr));
-          }}
-        >
-          SearchBYName
-        </button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            let isDelAll = window.confirm(
-              "Are you sure you want to delete everything!!!"
-            );
-            if (isDelAll) {
-              setList([]);
-              localStorage.setItem("list", JSON.stringify([]));
-            }
-          }}
-        >
-          DELETE
-        </button>
-      </form>
+        <form className="flex flex-row" onSubmit={(e) => submitHandler(e)}>
+          <div className="first-child">
+            <label htmlFor="insta">Insta handle </label>
+            <input
+              className="insta"
+              value={insta}
+              id="insta"
+              onChange={(e) => setInsta(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="second-child">
+            <label className="name" htmlFor="name">
+              Name
+            </label>
+            <input
+              value={name}
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="third-child">
+            <label className="age" htmlFor="age">
+              Age
+            </label>
+            <input
+              value={age}
+              id="age"
+              type="number"
+              onChange={(e) => setAge(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="fourth-child">
+            <label className="hobbies" htmlFor="hobbies">
+              Hobbies
+            </label>
+            <input
+              value={hobbies}
+              id="hobbies"
+              type="text"
+              onChange={(e) => setHobbies(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="fifth-child">
+            <label className="fruits" htmlFor="fruits">
+              Choose a fruits:
+            </label>
+            <select
+              className="choose"
+              name="fruits"
+              id="fruits"
+              value={fruit}
+              onChange={(e) => setFruit(e.target.value)}
+            >
+              <option value="Mango">Mango</option>
+              <option value="Apple">Apple</option>
+              <option value="Orange">Orange</option>
+              <option value="Banana">Banana</option>
+            </select>
+          </div>
+
+          <div className="sixth-child">
+            <input
+              type="checkbox"
+              id="Cooler"
+              name="Cooler"
+              value={isCool}
+              onClick={() => {
+                setCool(!isCool);
+              }}
+            />
+            <label className="cooler" htmlFor="Cooler">
+              I am Cool
+            </label>
+          </div>
+          <button className="submit">Submit</button>
+        </form>
+      </div>
       <MyComponent list={list} setList={setList} />
     </>
   );

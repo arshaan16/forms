@@ -37,21 +37,26 @@ const columns = [
   },
   { name: "Followers", selector: (row) => row.instaFollower },
 ];
-export function MyComponent({ list, setList }) {
-  return (
-    <>
-      <DataTable
-        columns={columns}
-        onRowClicked={(row) => {
-          let isDel = window.confirm("Are you sure you want to delete!!");
-          if (isDel) {
-            let arr = list.filter((item) => item.id !== row.id);
-            setList(arr);
-            localStorage.setItem("list", JSON.stringify(arr));
-          }
-        }}
-        data={list}
-      />
-    </>
-  );
+export function MyComponent({ list, setList, loading }) {
+  if (loading) {
+    return <h1>LOADING...</h1>;
+  } else {
+    return (
+      <>
+        <DataTable
+          columns={columns}
+          onRowClicked={(row) => {
+            let isDel = window.confirm("Are you sure you want to delete!!");
+            if (isDel) {
+              let arr = list.filter((item) => item.id !== row.id);
+              setList(arr);
+
+              localStorage.setItem("list", JSON.stringify(arr));
+            }
+          }}
+          data={list}
+        />
+      </>
+    );
+  }
 }

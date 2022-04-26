@@ -24,11 +24,15 @@ export default function App() {
   const [isCool, setCool] = useState(false);
   const [isSearching, setSearch] = useState("");
   const [insta, setInsta] = useState("");
+  const [loading, isLoading] = useState(false);
   // const [instaFollower, setInstaFollower] = useState(0);
   function submitHandler(e) {
     e.preventDefault();
     let arr;
-    let instant = fetch(`http://localhost:8000/results/?insta=${insta}`)
+    isLoading(true);
+    let instant = fetch(
+      `https://5a42-117-96-1-64.in.ngrok.io/results/?insta=${insta}`
+    )
       .then((response) => response.json())
       .then((data) => {
         //   setInstaFollower(data[0]);
@@ -37,6 +41,7 @@ export default function App() {
     instant
       .then((data) => {
         // console.log(instaFollower);
+        isLoading(false);
         list.push({
           id: myId++,
           title: name,
@@ -176,7 +181,7 @@ export default function App() {
           </button>
         </form>
       </div>
-      <MyComponent list={list} setList={setList} />
+      <MyComponent list={list} setList={setList} loading={loading} />
     </>
   );
 }

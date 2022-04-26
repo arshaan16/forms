@@ -14,7 +14,7 @@ const columns = [
     selector: (row) => {
       return (
         <a href={`https://www.instagram.com/${row.insta}`} target="_blank">
-          {row.insta} {row.followers || 0}
+          {row.insta}
         </a>
       );
     },
@@ -35,6 +35,7 @@ const columns = [
     name: "isCool",
     selector: (row) => row.isCool.toString(),
   },
+  { name: "Followers", selector: (row) => row.instaFollower },
 ];
 export function MyComponent({ list, setList }) {
   return (

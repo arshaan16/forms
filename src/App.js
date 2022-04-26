@@ -24,21 +24,36 @@ export default function App() {
   const [isCool, setCool] = useState(false);
   const [isSearching, setSearch] = useState("");
   const [insta, setInsta] = useState("");
+  // const [instaFollower, setInstaFollower] = useState(0);
   function submitHandler(e) {
     e.preventDefault();
-    list.push({
-      id: myId++,
-      title: name,
-      age: age,
-      hobbies: hobbies,
-      fruits: fruit,
-      isCool: isCool,
-      insta: insta,
-    });
-    let arr = [...list];
-    setList(arr);
-    localStorage.setItem("id", myId);
-    localStorage.setItem("list", JSON.stringify(arr));
+    let arr;
+    let instant = fetch(`http://localhost:8000/results/?insta=${insta}`)
+      .then((response) => response.json())
+      .then((data) => {
+        //   setInstaFollower(data[0]);
+        return data;
+      });
+    instant
+      .then((data) => {
+        // console.log(instaFollower);
+        list.push({
+          id: myId++,
+          title: name,
+          age: age,
+          hobbies: hobbies,
+          fruits: fruit,
+          isCool: isCool,
+          insta: insta,
+          instaFollower: data,
+        });
+      })
+      .then(() => {
+        arr = [...list];
+        setList(arr);
+        localStorage.setItem("id", myId);
+        localStorage.setItem("list", JSON.stringify(arr));
+      });
   }
   return (
     <>

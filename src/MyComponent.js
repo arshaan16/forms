@@ -39,7 +39,7 @@ const columns = [
 ];
 export function MyComponent({ list, setList, loading }) {
   if (loading) {
-    return <h1>LOADING...</h1>;
+    return <h1 className="loading">LOADING...</h1>;
   } else {
     return (
       <>

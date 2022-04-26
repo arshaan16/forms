@@ -30,17 +30,15 @@ export default function App() {
     e.preventDefault();
     let arr;
     isLoading(true);
-    let instant = fetch(
-      `https://5a42-117-96-1-64.in.ngrok.io/results/?insta=${insta}`
-    )
+    let instant = fetch(`http://localhost:8000/results/?insta=${insta}`)
       .then((response) => response.json())
       .then((data) => {
-        //   setInstaFollower(data[0]);
+        // setInstaFollower(data[0]);
         return data;
       });
     instant
       .then((data) => {
-        // console.log(instaFollower);
+        console.log(data);
         isLoading(false);
         list.push({
           id: myId++,
@@ -64,7 +62,7 @@ export default function App() {
     <>
       <div className="parent">
         <form className="search">
-          <label htmlFor="search">Search</label>
+          {/* <label htmlFor="search">Search</label> */}
           <input
             type="text"
             id="search"
@@ -83,6 +81,7 @@ export default function App() {
             SearchBYName
           </button>
           <button
+            className="delAll"
             onClick={(e) => {
               e.preventDefault();
               let isDelAll = window.confirm(

@@ -44,6 +44,7 @@ export function MyComponent({ list, setList, loading }) {
     return (
       <>
         <DataTable
+          className="table"
           columns={columns}
           onRowClicked={(row) => {
             let isDel = window.confirm("Are you sure you want to delete!!");

@@ -25,10 +25,12 @@ export default function App() {
   const [isSearching, setSearch] = useState("");
   const [insta, setInsta] = useState("");
   const [loading, isLoading] = useState(false);
-  // const [instaFollower, setInstaFollower] = useState(0);
+
   function submitHandler(e) {
     e.preventDefault();
+
     let arr;
+
     isLoading(true);
     let instant = fetch(`http://localhost:8000/results/?insta=${insta}`)
       .then((response) => response.json())
@@ -175,7 +177,7 @@ export default function App() {
               I am Cool
             </label>
           </div>
-          <button type="submit" className="submit">
+          <button type="submit" className={insta ? "submit" : "disabled"}>
             Submit
           </button>
         </form>

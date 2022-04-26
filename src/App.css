@@ -47,9 +47,6 @@ label {
 button:hover {
   cursor: pointer;
 }
-.submit {
-  margin: 0 auto;
-}
 
 a {
   text-decoration: none;
@@ -71,4 +68,28 @@ a:hover {
 }
 .delAll {
   margin-left: 3px;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: rgb(73, 7, 112);
+  color: white;
+  font-size: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: opacity 0.3s linear;
+}
+.disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  margin: 0 auto;
+}
+.submit {
+  margin: 0 auto;
 }

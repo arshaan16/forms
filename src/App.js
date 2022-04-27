@@ -32,7 +32,9 @@ export default function App() {
     let arr;
 
     isLoading(true);
-    let instant = fetch(`http://localhost:8000/results/?insta=${insta}`)
+    let instant = fetch(
+      `https://limitless-brushlands-63404.herokuapp.com/results/?insta=${insta}`
+    )
       .then((response) => response.json())
       .then((data) => {
         // setInstaFollower(data[0]);

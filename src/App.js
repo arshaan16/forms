@@ -32,15 +32,8 @@ export default function App() {
     let arr;
 
     isLoading(true);
-    let instant = fetch(
-      `https://limitless-brushlands-63404.herokuapp.com/results/?insta=${insta}`
-    )
+    fetch(`http://adani.tongo.in:7398/results?insta=${insta}`)
       .then((response) => response.json())
-      .then((data) => {
-        // setInstaFollower(data[0]);
-        return data;
-      });
-    instant
       .then((data) => {
         console.log(data);
         isLoading(false);
@@ -62,6 +55,7 @@ export default function App() {
         localStorage.setItem("list", JSON.stringify(arr));
       });
   }
+
   return (
     <>
       <div className="parent">
